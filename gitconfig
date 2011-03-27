@@ -1,0 +1,18 @@
+[user]
+   name = Mark Gius
+   email = mgius7096@gmail.com
+[alias]
+   co = checkout
+   st = status
+   ci = commit
+   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+[color]
+   ui = auto
+[push]
+   default = tracking
+[core]
+   autocrlf = input
+[github]
+   user = mgius
+[branch]
+   autosetupmerge = true
