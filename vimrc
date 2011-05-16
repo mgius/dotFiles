@@ -3,6 +3,10 @@
 " Forked from Nat Welch
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 set encoding=utf-8
 behave xterm
 set nocompatible       " no compatibility with vi
@@ -35,6 +39,9 @@ set showmatch          " show matching () {} etc.
 set showmode           " show current mode
 
 " Settings for autoindentation, comments, and what-have-you
+"
+set foldmethod=indent
+set foldlevel=99
 
 set expandtab          " expand tabs with spaces
 set tabstop=3          " <Tab> move three characters
@@ -93,11 +100,14 @@ au BufRead,BufNewFile *.bib highlight clear OverLength
 :nnoremap <C-p><C-p> :set invpaste<CR>
 
 " Use the space key to open and close code folds
-:vnoremap <space> zf<CR>
-:nnoremap <space> zd<CR>
+:vnoremap <space> zo<CR>
+:nnoremap <space> zc<CR>
 
 " Toggle spell checking.
 :map <f7> :set spell!<cr>
 
 " Clear search buffer with Ctrl+l
 :noremap <silent> <c-l> :nohls<cr><c-l>
+
+" Show PEP8 violations.  Requires pep8 binary in PATH
+let g:pep8_map='<leader>8'
