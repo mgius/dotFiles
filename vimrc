@@ -57,7 +57,7 @@ set wrap               " linewrap
 
 " turns status line always on and configures it
 set laststatus=2
-set statusline=%<%f\ %m\ %h%r%=%b\ 0x%B\ \ %l,%c%V\ %P\ of\ %L
+set statusline=%<%f\ %{fugitive#statusline()}%m\ %h%r%=%b\ 0x%B\ \ %l,%c%V\ %P\ of\ %L
 
 " Highlights long lines (Turned off...)
 "highlight OverLength term=standout cterm=bold ctermfg=1
@@ -100,8 +100,8 @@ au BufRead,BufNewFile *.bib highlight clear OverLength
 :nnoremap <C-p><C-p> :set invpaste<CR>
 
 " Use the space key to open and close code folds
-:vnoremap <space> zo<CR>
-:nnoremap <space> zc<CR>
+:vnoremap <space> zf<CR>
+:nnoremap <space> zd<CR>
 
 " Toggle spell checking.
 :map <f7> :set spell!<cr>
@@ -111,3 +111,6 @@ au BufRead,BufNewFile *.bib highlight clear OverLength
 
 " Show PEP8 violations.  Requires pep8 binary in PATH
 let g:pep8_map='<leader>8'
+
+" Activate File Browser
+map <leader>n :NERDTreeToggle<CR>
