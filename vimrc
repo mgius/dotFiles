@@ -114,3 +114,8 @@ let g:pep8_map='<leader>8'
 
 " Activate File Browser
 map <leader>n :NERDTreeToggle<CR>
+
+" Buffer left/right. ^[ (C-V C-[) is a gnome-terminal specific hack.  
+" See :help map-alt-keys for why
+map h :bN<CR>
+map l :bn<CR>
