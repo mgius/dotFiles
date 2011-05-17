@@ -116,6 +116,11 @@ let g:pep8_map='<leader>8'
 map <leader>n :NERDTreeToggle<CR>
 
 " Buffer left/right. ^[ (C-V C-[) is a gnome-terminal specific hack.  
+" Gnome-terminal sends ESC-KEY on Alt and Meta keypresses.
 " See :help map-alt-keys for why
 map h :bN<CR>
 map l :bn<CR>
+
+" The previous could cause issues in legimate ESC and movement keypresses.
+" This delay should fix that.
+:set timeout timeoutlen=5000 ttimeoutlen=100 
