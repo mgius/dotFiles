@@ -114,13 +114,19 @@ let g:pep8_map='<leader>8'
 
 " Activate File Browser
 map <leader>n :NERDTreeToggle<CR>
+" And then pyflakes gets in the way
+let g:pyflakes_use_quickfix = 0
 
 " Buffer left/right. ^[ (C-V C-[) is a gnome-terminal specific hack.  
 " Gnome-terminal sends ESC-KEY on Alt and Meta keypresses.
 " See :help map-alt-keys for why
-map h :bN<CR>
-map l :bn<CR>
+"map h :bN<CR>
+"map l :bn<CR>
+map bh :bN<CR>
+map bl :bn<CR>
 
 " The previous could cause issues in legimate ESC and movement keypresses.
 " This delay should fix that.
-:set timeout timeoutlen=5000 ttimeoutlen=100 
+":set timeout timeoutlen=1000 ttimeoutlen=40 
+
+let NERDTreeIgnore=['\~$','\.pyc$']
