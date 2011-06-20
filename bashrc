@@ -44,12 +44,38 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
+# This function unashamedly stolen from http://github.com/icco
+bash_prompt_command() {
+    # How many characters of the $PWD should be kept
+    local pwdmaxlen=23
+    # Indicate that there has been dir truncation
+    local trunc_symbol="..."
+    local dir=${PWD##*/}
+    pwdmaxlen=$(( ( pwdmaxlen < ${#dir} ) ? ${#dir} : pwdmaxlen ))
+    NEW_PWD=${PWD/#$HOME/\~}
+    local pwdoffset=$(( ${#NEW_PWD} - pwdmaxlen ))
+    if [ ${pwdoffset} -gt "0" ]
+    then
+        NEW_PWD=${NEW_PWD:$pwdoffset:$pwdmaxlen}
+        NEW_PWD=${trunc_symbol}/${NEW_PWD#*/}
+    fi
+}
+PROMPT_COMMAND=bash_prompt_command
+
+function parse_git_branch {
+  ref=$(/usr/lib/git-core/git-symbolic-ref HEAD 2> /dev/null) || return
+    echo "("${ref#refs/heads/}")"
+}
+
+source ~/.bash_colors
+
+PS1="\[$BBlue\]\u@\h:\[$BRed\]\${NEW_PWD} \[$BYellow\]\$(parse_git_branch)\[$BGreen\]\$ \[$Color_Off\]"
+
+# Above colorscheme is deadly on white backgrounds.  Nuke it sometimes
+function unset_ps1_colors {
+   export PS1="\u@\h:\${NEW_PWD} \$(parse_git_branch)\$ "
+}
+
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in

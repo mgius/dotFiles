@@ -60,8 +60,8 @@ set laststatus=2
 set statusline=%<%f\ %{fugitive#statusline()}%m\ %h%r%=%b\ 0x%B\ \ %l,%c%V\ %P\ of\ %L
 
 " Highlights long lines (Turned off...)
-"highlight OverLength term=standout cterm=bold ctermfg=1
-"match OverLength /\%91v.\+/
+highlight OverLength term=standout cterm=bold ctermfg=1
+match ErrorMsg '\%>79v.\+'
 
 " Markdown
 au BufRead,BufNewFile *.md set ft=markdown
@@ -122,9 +122,15 @@ let g:pyflakes_use_quickfix = 0
 " See :help map-alt-keys for why
 "map h :bN<CR>
 "map l :bn<CR>
+" Less hacky version
 map bh :bN<CR>
 map bl :bn<CR>
+map bN :bN<CR>
+map bn :bn<CR>
 
+" Quickfix next/prev
+map cn :cn<CR>
+map cN :cN<CR>
 " The previous could cause issues in legimate ESC and movement keypresses.
 " This delay should fix that.
 ":set timeout timeoutlen=1000 ttimeoutlen=40 
