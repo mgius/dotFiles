@@ -56,3 +56,4 @@ done;
 
 #echo $dotfiles;
 #echo ${excludes[*]};
+echo "vim ctags support requires exuberant ctags, install it"

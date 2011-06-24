@@ -117,6 +117,9 @@ map <leader>n :NERDTreeToggle<CR>
 " And then pyflakes gets in the way
 let g:pyflakes_use_quickfix = 0
 
+" ctags awesomeness
+nnoremap <silent> <c-i> :TlistToggle<CR>
+
 " Buffer left/right. ^[ (C-V C-[) is a gnome-terminal specific hack.  
 " Gnome-terminal sends ESC-KEY on Alt and Meta keypresses.
 " See :help map-alt-keys for why
