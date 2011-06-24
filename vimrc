@@ -119,6 +119,8 @@ let g:pyflakes_use_quickfix = 0
 
 " ctags awesomeness
 nnoremap <silent> <c-i> :TlistToggle<CR>
+let Tlist_Close_On_Select = 1
+let Tlist_Use_Right_Window = 1
 
 " Buffer left/right. ^[ (C-V C-[) is a gnome-terminal specific hack.  
 " Gnome-terminal sends ESC-KEY on Alt and Meta keypresses.

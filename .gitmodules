@@ -52,3 +52,6 @@
 [submodule "vim/bundle/vim-taglist"]
 	path = vim/bundle/vim-taglist
 	url = https://github.com/rphillips/vim-taglist.git
+[submodule "vim/bundle/pydiction"]
+	path = vim/bundle/pydiction
+	url = https://github.com/franciscosouza/Pydiction.git
