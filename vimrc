@@ -40,8 +40,8 @@ set showmode           " show current mode
 
 " Settings for autoindentation, comments, and what-have-you
 "
-set foldmethod=indent
-set foldlevel=99
+"set foldmethod=indent
+"set foldlevel=99
 
 set expandtab          " expand tabs with spaces
 set tabstop=3          " <Tab> move three characters
@@ -62,6 +62,9 @@ set statusline=%<%f\ %{fugitive#statusline()}%m\ %h%r%=%b\ 0x%B\ \ %l,%c%V\ %P\ 
 " Highlights long lines (Turned off...)
 highlight OverLength term=standout cterm=bold ctermfg=1
 match ErrorMsg '\%>79v.\+'
+
+" Change folded lines to be a little less painful
+highlight Folded term=standout ctermfg=4 ctermbg=8 guifg=DarkBlue guibg=DarkGrey
 
 " Markdown
 au BufRead,BufNewFile *.md set ft=markdown

@@ -126,4 +126,8 @@ fi
 
 # If I have a bin in my user directory, check there for commands.
 # We do this late in the file so it takes priority.
+[ -d ~/.local/bin ] && PATH=~/.local/bin:$PATH
 [ -d ~/bin ] && PATH=~/bin:$PATH
+
+
+alias pygrep='grep -R --include="*.py"'
