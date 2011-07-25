@@ -129,5 +129,6 @@ fi
 [ -d ~/.local/bin ] && PATH=~/.local/bin:$PATH
 [ -d ~/bin ] && PATH=~/bin:$PATH
 
-
 alias pygrep='grep -R --include="*.py"'
+
+export PYTHONSTARTUP=~/src/dotFiles/pystartup.py

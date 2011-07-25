@@ -2,7 +2,7 @@
 # A script to covert a linux profile to have all of my prefered settings.
 
 dotfiles=`ls`;
-excludes=( "README.md" "infect.sh" );
+excludes=( "README.md" "infect.sh" "pystartup.py" );
 
 # Checks to see if a file should be excluded
 function exclude() {
