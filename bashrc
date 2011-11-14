@@ -129,6 +129,6 @@ fi
 [ -d ~/.local/bin ] && PATH=~/.local/bin:$PATH
 [ -d ~/bin ] && PATH=~/bin:$PATH
 
-alias pygrep='grep -R --include="*.py"'
+alias pygrep='grep -R --include="*.py" --exclude-dir="*-venv"'
 
 export PYTHONSTARTUP=~/src/dotFiles/pystartup.py
