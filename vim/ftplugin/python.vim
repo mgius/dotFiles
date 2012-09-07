@@ -15,4 +15,4 @@ set softtabstop=4
 set makeprg=pylint\ --rcfile=~/.pylintrc\ --reports=n\ --output-format=parseable\ %:p
 set errorformat=%f:%l:\ %m
 "autocmd BufWritePost *.py make
-map <leader>wf :make<CR> :cw<CR>
+map <leader>wf :w<CR>:make<CR>:cw<CR>
