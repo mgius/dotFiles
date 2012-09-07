@@ -129,6 +129,12 @@ fi
 [ -d ~/.local/bin ] && PATH=~/.local/bin:$PATH
 [ -d ~/bin ] && PATH=~/bin:$PATH
 
-alias pygrep='grep -R --include="*.py" --exclude-dir="*-venv"'
+export PATH=$PATH:/sbin/:/usr/sbin/
+
+alias pygrep='grep -P -R --include="*.py" --exclude-dir="*-venv"'
+
+export BASE_BRANCH='master'
+alias git_pep8='vim $(pep8 -q $(git diff --name-only $BASE_BRANCH | grep "py$") | uniq)'
+alias git_edit_changed='vim $(git diff --name-only $BASE_BRANCH)'
 
 export PYTHONSTARTUP=~/src/dotFiles/pystartup.py

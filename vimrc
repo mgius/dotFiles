@@ -103,14 +103,14 @@ au BufRead,BufNewFile *.bib highlight clear OverLength
 :nnoremap <C-p><C-p> :set invpaste<CR>
 
 " Use the space key to open and close code folds
-:vnoremap <space> zf<CR>
-:nnoremap <space> zd<CR>
+" :vnoremap <space> zf<CR>
+" :nnoremap <space> zd<CR>
 
 " Toggle spell checking.
 :map <f7> :set spell!<cr>
 
 " Clear search buffer with Ctrl+l
-:noremap <silent> <c-l> :nohls<cr><c-l>
+:nnoremap <silent> <c-l> :nohls<cr><c-l>
 
 " Show PEP8 violations.  Requires pep8 binary in PATH
 let g:pep8_map='<leader>8'
