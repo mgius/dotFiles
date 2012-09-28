@@ -6,6 +6,7 @@
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+call pathogen#infect()
 
 set encoding=utf-8
 behave xterm
@@ -57,7 +58,7 @@ set wrap               " linewrap
 
 " turns status line always on and configures it
 set laststatus=2
-set statusline=%<%f\ %{fugitive#statusline()}%m\ %h%r%=%b\ 0x%B\ \ %l,%c%V\ %P\ of\ %L
+set statusline=%<%f\%{fugitive#statusline()}%m\ %h%r%=%b\ 0x%B\ \ %l,%c%V\ %P\ of\ %L
 
 " Highlights long lines (Turned off...)
 highlight OverLength term=standout cterm=bold ctermfg=1

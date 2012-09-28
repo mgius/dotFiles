@@ -12,7 +12,7 @@ set shiftwidth=4
 set softtabstop=4
 
 " Pylint magic
-set makeprg=pylint\ --rcfile=~/.pylintrc\ --reports=n\ --output-format=parseable\ %:p
+set makeprg=pylint\ --rcfile=~/.pylintrc\ --reports=n\ --output-format=parseable\ --include-ids=y\ %:p
 set errorformat=%f:%l:\ %m
 "autocmd BufWritePost *.py make
 map <leader>wf :w<CR>:make<CR>:cw<CR>
