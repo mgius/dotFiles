@@ -135,6 +135,6 @@ alias pygrep='grep -P -R --include="*.py" --exclude-dir="*-venv"'
 
 export BASE_BRANCH='master'
 alias git_pep8='vim $(pep8 -q $(git diff --name-only $BASE_BRANCH | grep "py$") | uniq)'
-alias git_edit_changed='vim $(git diff --name-only $BASE_BRANCH)'
+alias git_edit_changed='git diff --name-only $BASE_BRANCH | xargs -n 10 vim; stty sane'
 
 export PYTHONSTARTUP=~/src/dotFiles/pystartup.py
