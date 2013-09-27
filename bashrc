@@ -138,3 +138,23 @@ alias git_pep8='vim $(pep8 -q $(git diff --name-only $BASE_BRANCH | grep "py$") 
 alias git_edit_changed='git diff --name-only $BASE_BRANCH | xargs -n 10 vim; stty sane'
 
 export PYTHONSTARTUP=~/src/dotFiles/pystartup.py
+
+if ! $(ssh-add -l | grep -q /home/mgius/.ssh/development.pem); then
+   ssh-add ~/.ssh/development.pem
+fi
+
+[[ -f "/home/mgius/.local/share/Steam/setup_debian_environment.sh" ]] && source "/home/mgius/.local/share/Steam/setup_debian_environment.sh"
+
+alias kingfm='mplayer mms://wm-live.abacast.com/king-kingfm-64 -cache 1000'
+
+function activate () {
+    source ~/virtualenvs/$1/bin/activate
+ }
+
+function activatethis() {
+   activate $(basename $(pwd))
+}
+
+function create_venv () {
+    virtualenv ~/virtualenvs/$1
+ }
