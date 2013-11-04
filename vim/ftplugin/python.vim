@@ -1,6 +1,5 @@
 "set omnifunc=pythoncomplete#Complete
 "let g:SuperTabDefaultCompletionType = "context"
-"let g:pydiction_location = '/home/mgius/.vim/bundle/pydiction/complete-dict'
 
 set completeopt=menuone,longest,preview
 

@@ -83,9 +83,6 @@ au BufRead,BufNewFile *.fs set ft=fs
 au BufRead,BufNewFile *.txt highlight clear OverLength
 "au BufRead,BufNewFile *.txt set textwidth=80
 
-" God
-au BufRead,BufNewFile *.god set filetype=ruby
-
 " Tex Files
 au BufRead,BufNewFile *.tex highlight clear OverLength
 au BufRead,BufNewFile *.bib highlight clear OverLength
@@ -109,9 +106,9 @@ autocmd FileType python map <buffer> <leader>8 :call Pep8()<CR>
 map <leader>n :NERDTreeToggle<CR>
 
 " ctags awesomeness
-nnoremap <silent> <c-i> :TlistToggle<CR>
-let Tlist_Close_On_Select = 1
-let Tlist_Use_Right_Window = 1
+" nnoremap <silent> <c-i> :TlistToggle<CR>
+" let Tlist_Close_On_Select = 1
+" let Tlist_Use_Right_Window = 1
 
 " Buffer left/right. ^[ (C-V C-[) is a gnome-terminal specific hack.  
 " Gnome-terminal sends ESC-KEY on Alt and Meta keypresses.
@@ -124,17 +121,19 @@ map bl :bn<CR>
 map bN :bN<CR>
 map bn :bn<CR>
 
-" NERDTree Configuration
+
+"" NERDTree Configuration
 let NERDTreeIgnore=['\~$','\.pyc$']
 
-" syntastic configuration
-let g:syntastic_python_checkers=['pylint']
 
-" navigate syntastic output
+"" syntastic configuration
+let g:syntastic_python_checkers=['pylint']
+" Syntastic output navigation shortcuts
 map cn :lnext<CR>
 map cN :lprev<CR>
 
-" Minibufexpl.vim configuration
+
+"" Minibufexpl.vim configuration
 " Colors
 hi MBENormal               ctermfg=Green
 hi MBEChanged              ctermfg=Red
@@ -142,3 +141,15 @@ hi MBEVisibleNormal        ctermfg=Green
 hi MBEVisibleChanged       ctermfg=Red
 hi MBEVisibleActiveNormal  ctermfg=Green        ctermbg=DarkGrey
 hi MBEVisibleActiveChanged ctermfg=Red          ctermbg=DarkGrey
+
+
+"" jedi-vim
+" I'm a buffer man
+" I would prefer not to have preview pane
+autocmd FileType python setlocal completeopt-=preview
+" I already use leader-n for nerdtree
+let g:jedi#usages_command = "<leader>N"
+
+
+"" supertab
+let g:SuperTabDefaultCompletionType = "<c-n>"
