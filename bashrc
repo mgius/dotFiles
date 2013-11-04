@@ -134,8 +134,14 @@ export PATH=$PATH:/sbin/:/usr/sbin/
 alias pygrep='grep -P -R --include="*.py" --exclude-dir="*-venv"'
 
 export BASE_BRANCH='master'
-alias git_pep8='vim $(pep8 -q $(git diff --name-only $BASE_BRANCH | grep "py$") | uniq)'
-alias git_edit_changed='git diff --name-only $BASE_BRANCH | xargs -n 10 vim; stty sane'
+function git_pep8 () { 
+   vim $(pep8 -q $(git diff --name-only ${1-:master} | grep "py$") | uniq)
+}
+
+function git_edit_changed() {
+   git diff --name-only ${1:-master} | xargs -n 10 vim
+   stty sane
+}
 
 export PYTHONSTARTUP=~/src/dotFiles/pystartup.py
 
