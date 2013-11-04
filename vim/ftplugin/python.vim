@@ -1,6 +1,6 @@
 "set omnifunc=pythoncomplete#Complete
 "let g:SuperTabDefaultCompletionType = "context"
-let g:pydiction_location = '/home/mgius/.vim/bundle/pydiction/complete-dict'
+"let g:pydiction_location = '/home/mgius/.vim/bundle/pydiction/complete-dict'
 
 set completeopt=menuone,longest,preview
 
@@ -12,7 +12,7 @@ set shiftwidth=4
 set softtabstop=4
 
 " Pylint magic
-set makeprg=pylint\ --rcfile=~/.pylintrc\ --reports=n\ --output-format=parseable\ --include-ids=y\ %:p
-set errorformat=%f:%l:\ %m
-"autocmd BufWritePost *.py make
-map <leader>wf :w<CR>:make<CR>:cw<CR>
+" set makeprg=pylint\ --rcfile=~/.pylintrc\ --reports=n\ --output-format=parseable\ --include-ids=y\ %:p
+" set errorformat=%f:%l:\ %m
+" "autocmd BufWritePost *.py make
+" map <leader>wf :w<CR>:make<CR>:cw<CR>
