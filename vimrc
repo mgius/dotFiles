@@ -127,7 +127,7 @@ let NERDTreeIgnore=['\~$','\.pyc$']
 
 
 "" syntastic configuration
-let g:syntastic_python_checkers=['pylint']
+let g:syntastic_python_checkers=['pep8', 'pylint']
 " Syntastic output navigation shortcuts
 map cn :lnext<CR>
 map cN :lprev<CR>
@@ -153,3 +153,6 @@ let g:jedi#usages_command = "<leader>N"
 
 "" supertab
 let g:SuperTabDefaultCompletionType = "<c-n>"
+
+"" command-t
+let g:CommandTWildIgnore = "*venv,*.pyc,debian/*"
