@@ -151,6 +151,7 @@ hi MBEVisibleActiveChanged ctermfg=Red          ctermbg=DarkGrey
 autocmd FileType python setlocal completeopt-=preview
 " I already use leader-n for nerdtree
 let g:jedi#usages_command = "<leader>N"
+let g:jedi#use_tabs_not_buffers = 0
 
 
 "" supertab
