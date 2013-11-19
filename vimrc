@@ -127,7 +127,9 @@ let NERDTreeIgnore=['\~$','\.pyc$']
 
 
 "" syntastic configuration
-let g:syntastic_python_checkers=['pep8', 'pylint']
+let g:syntastic_python_checkers=['pylint', 'pep8']
+" Our central pep8 doesn't seem to care about these errors...
+let g:syntastic_python_pep8_args="--ignore=E123,E124,E125,E126,E127,E128"
 " Syntastic output navigation shortcuts
 map cn :lnext<CR>
 map cN :lprev<CR>
@@ -155,4 +157,4 @@ let g:jedi#usages_command = "<leader>N"
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 "" command-t
-let g:CommandTWildIgnore = "*venv,*.pyc,debian/*"
+let g:CommandTWildIgnore = "*venv,*.pyc,debian/*,build/*"
