@@ -128,6 +128,7 @@ let NERDTreeIgnore=['\~$','\.pyc$']
 
 "" syntastic configuration
 let g:syntastic_python_checkers=['pep8', 'pylint']
+let g:syntastic_always_populate_loc_list=1
 " Syntastic output navigation shortcuts
 map cn :lnext<CR>
 map cN :lprev<CR>
