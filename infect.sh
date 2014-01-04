@@ -54,6 +54,11 @@ for file in $dotfiles; do
    fi;
 done;
 
+pushd vim/bundle/Command-T/ruby/command-t
+ruby extconf.rb
+make
+popd
+
 #echo $dotfiles;
 #echo ${excludes[*]};
 echo "vim ctags support requires exuberant ctags, install it"
