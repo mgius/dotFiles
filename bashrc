@@ -162,5 +162,7 @@ function activatethis() {
 }
 
 function create_venv () {
-    virtualenv ~/virtualenvs/$1
+    venv_name=$1
+    shift
+    virtualenv ~/virtualenvs/$venv_name $*
  }
