@@ -143,17 +143,18 @@ function git_edit_changed() {
    stty sane
 }
 
-export PYTHONSTARTUP=~/src/dotFiles/pystartup.py
-
 if ! $(ssh-add -l | grep -q /home/mgius/.ssh/development.pem); then
    ssh-add ~/.ssh/development.pem
 fi
 
-[[ -f "/home/mgius/.local/share/Steam/setup_debian_environment.sh" ]] && source "/home/mgius/.local/share/Steam/setup_debian_environment.sh"
-
 alias kingfm='mplayer mms://wm-live.abacast.com/king-kingfm-64 -cache 1000'
+alias kexp='mplayer http://216.246.37.218:80/kexp128.mp3 -cache 1000'
+alias kcpr='mplayer http://129.65.35.106:8000/KCPRMP3 -cache 1000'
 
 function activate () {
+    if [ ! -d ~/virtualenvs/$1 ]; then
+       create_venv $1
+    fi
     source ~/virtualenvs/$1/bin/activate
  }
 
@@ -166,3 +167,11 @@ function create_venv () {
     shift
     virtualenv ~/virtualenvs/$venv_name $*
  }
+
+function untar_anvillogs () {
+   tar -xf $1
+   pushd `basename -s .tar $1`
+   ls | xargs -n 1 tar -xf
+   popd
+}
+
